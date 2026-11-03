@@ -257,8 +257,6 @@ function mountPhone(project,root,options={}){
    const box=el.querySelector('.call-script');let line=box.querySelector('.voicemail-line');
    if(!line){line=document.createElement('button');line.className='call-line voicemail-line';line.onclick=reveal;box.prepend(line)}
    line.textContent=lines[index++];line.disabled=index===lines.length;
-   let hint=box.querySelector('.voicemail-hint');if(!hint){hint=document.createElement('p');hint.className='call-subtitle voicemail-hint';line.after(hint)}
-   hint.textContent=line.disabled?'':'轻点留言，查看下一句';
   }
   function tick(){if(ended)return;const sec=Math.floor((Date.now()-started)/1000);const out=el.querySelector('.call-status');if(out)out.textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');schedule(tick,1000)}
   function connect(){
